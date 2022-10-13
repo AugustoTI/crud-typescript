@@ -1,9 +1,18 @@
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import styles from './App.module.scss';
 import './styles/global.scss';
 
 export const App = () => {
   return (
     <>
-      <h1>Your Content</h1>
+      <Header />
+      <main className={styles.main_container}>
+        <div>
+          <h2>Your Content</h2>
+        </div>
+      </main>
+      <Footer />
     </>
   );
 };
