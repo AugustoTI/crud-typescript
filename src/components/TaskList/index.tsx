@@ -4,9 +4,14 @@ import styles from './styles.module.scss';
 interface TaskListProps {
   taskList: ITask[];
   handleDelete(id: string): void;
+  handleEdit(): void;
 }
 
-export const TaskList = ({ taskList, handleDelete }: TaskListProps) => {
+export const TaskList = ({
+  taskList,
+  handleDelete,
+  handleEdit,
+}: TaskListProps) => {
   return (
     <>
       {taskList.length > 0 ? (
@@ -17,7 +22,7 @@ export const TaskList = ({ taskList, handleDelete }: TaskListProps) => {
               <p>Dificuldade: {task.difficulty}</p>
             </div>
             <div className={styles.task_actions}>
-              <i className="bi bi-pencil"></i>
+              <i className="bi bi-pencil" onClick={() => handleEdit()}></i>
               <i
                 className="bi bi-trash"
                 onClick={() => handleDelete(task.id)}
