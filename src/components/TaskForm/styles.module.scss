@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  background-color: #61dafb;
+  border: 1px solid transparent;
+  color: #000;
+  transition: background-color 0.2s, border-color 0.2s;
+
+  &:hover {
+    background-color: #fff;
+    border-color: #282c34;
+  }
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  input {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 2.4rem;
+    border-radius: 0;
+    border: 1px solid #282c34;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 0.4em;
+  }
+}
