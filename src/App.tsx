@@ -10,6 +10,13 @@ import { TaskList } from './components/TaskList';
 export const App = () => {
   const [taskList, setTaskList] = useState<ITask[]>([]);
 
+  const deleteTask = (id: string) => {
+    const copyTaskList = [...taskList];
+    const index = copyTaskList.findIndex((task) => task.id === id);
+    copyTaskList.splice(index, 1);
+    setTaskList(copyTaskList);
+  };
+
   return (
     <>
       <Header />
@@ -24,7 +31,7 @@ export const App = () => {
         </div>
         <div>
           <h2>Suas tarefas</h2>
-          <TaskList taskList={taskList} />
+          <TaskList taskList={taskList} handleDelete={deleteTask} />
         </div>
       </main>
       <Footer />
