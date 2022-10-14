@@ -1,0 +1,38 @@
+.task_container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 40rem;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+}
+
+.task_details {
+  text-align: left;
+
+  h3 {
+    font-size: 1.9rem;
+    margin-bottom: 3.2rem;
+  }
+}
+
+.task_actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  i {
+    font-size: 1.9rem;
+    cursor: pointer;
+    background-color: #282c34;
+    color: #fff;
+    padding: 0.6rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #61dafb;
+    }
+  }
+}

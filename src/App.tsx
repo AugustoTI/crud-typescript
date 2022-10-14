@@ -5,6 +5,7 @@ import './styles/global.scss';
 import { TaskForm } from './components/TaskForm';
 import { useState } from 'react';
 import { ITask } from './types/task';
+import { TaskList } from './components/TaskList';
 
 export const App = () => {
   const [taskList, setTaskList] = useState<ITask[]>([]);
@@ -20,6 +21,10 @@ export const App = () => {
             taskList={taskList}
             setTaskList={setTaskList}
           />
+        </div>
+        <div>
+          <h2>Suas tarefas</h2>
+          <TaskList taskList={taskList} />
         </div>
       </main>
       <Footer />
