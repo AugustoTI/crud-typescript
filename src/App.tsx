@@ -10,6 +10,7 @@ import { Modal } from './components/Modal';
 
 export const App = () => {
   const [taskList, setTaskList] = useState<ITask[]>([]);
+  const [taskSelected, setTaskSelected] = useState<ITask | null>(null);
 
   const deleteTask = (id: string) => {
     const copyTaskList = [...taskList];
@@ -27,14 +28,29 @@ export const App = () => {
     }
   };
 
-  const editTask = () => {
+  const editTask = (task: ITask) => {
     hiddenOrShowModal(true);
+    setTaskSelected(task);
+  };
+
+  const updateTask = (taskSelected: ITask) => {
+    const copyTaskList = [...taskList];
+    const index = copyTaskList.findIndex((task) => task.id === taskSelected.id);
+    copyTaskList[index] = taskSelected;
+    setTaskList(copyTaskList);
+    setTaskSelected(null);
+    hiddenOrShowModal(false);
   };
 
   return (
     <>
       <Modal>
-        <TaskForm btnText="Editar tarefa" taskList={taskList} />
+        <TaskForm
+          btnText="Editar tarefa"
+          taskList={taskList}
+          taskForEditing={taskSelected}
+          handleUpdate={updateTask}
+        />
       </Modal>
       <Header />
       <main className={styles.main_container}>
